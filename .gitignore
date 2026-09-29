@@ -1,0 +1,41 @@
+# Dependencies & build
+node_modules/
+dist/
+.next/
+.turbo/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs & caches
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.pnpm-store/
+.cache/
+
+# Analysis clones (Phase 0)
+_refs/
+
+# Figma / local tooling
+*.fig
+.figma/
+
+# Test / temp
+tmp/
+temp/
+.vercel
