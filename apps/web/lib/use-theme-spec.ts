@@ -28,6 +28,7 @@ export function useThemeSpec() {
   const [urlReady, setUrlReady] = useState(false)
   const [previewMode, setPreviewMode] = useState<'light' | 'dark'>('light')
   const [copyStatus, setCopyStatus] = useState<string | null>(null)
+  const [origin, setOrigin] = useState('https://handstyle.dev')
 
   // Apply share URL before paint so we don't overwrite ?s= with the default theme.
   useLayoutEffect(() => {
@@ -36,12 +37,16 @@ export function useThemeSpec() {
     setUrlReady(true)
   }, [])
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') setOrigin(window.location.origin)
+  }, [])
+
   const theme: ResolvedTheme = useMemo(() => deriveTheme(spec), [spec])
   const findings: AuditFinding[] = useMemo(() => auditContrast(theme), [theme])
   const token = useMemo(() => encodeThemeSpec(spec), [spec])
   const css = useMemo(() => serializeCss(theme), [theme])
   const themeCss = useMemo(() => serializeTailwindV4(theme), [theme])
-  const installCmd = useMemo(() => installCommandFor(token), [token])
+  const installCmd = useMemo(() => installCommandFor(token, origin), [token, origin])
 
   useEffect(() => {
     if (!urlReady) return

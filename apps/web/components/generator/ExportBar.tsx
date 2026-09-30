@@ -26,9 +26,9 @@ export function ExportBar({ ctrl }: { ctrl: ThemeSpecController }) {
         </button>
       </div>
       <p style={{ margin: 0, fontSize: 12, color: 'var(--shell-muted)', lineHeight: 1.45 }}>
-        Install command targets the Phase 5 registry route (
+        Install adds the generated theme CSS via{' '}
         <code style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}>/r/t/…/theme</code>
-        ). CSS export works now.
+        . UI components: configure <code style={{ fontFamily: 'var(--font-mono)', fontSize: 11 }}>@cmplt</code> separately.
       </p>
       {ctrl.copyStatus ? (
         <p

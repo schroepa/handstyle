@@ -55,6 +55,8 @@ export function createDefaultThemeSpec(): ThemeSpec {
   })
 }
 
-export function installCommandFor(specToken: string): string {
-  return `npx shadcn add https://handstyle.dev/r/t/${specToken}/theme`
+export function installCommandFor(specToken: string, origin?: string): string {
+  const base = (origin ?? 'https://handstyle.dev').replace(/\/$/, '')
+  return `npx shadcn add ${base}/r/t/${specToken}/theme`
 }
+
