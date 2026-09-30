@@ -1,6 +1,6 @@
 import { contrastRatio } from '@tintfield/engine'
-import type { ResolvedTheme, ThemeMode } from './derive'
-import type { SemanticTokenName } from './theme-spec'
+import type { ResolvedTheme, ThemeMode } from '../derive'
+import type { SemanticTokenName } from '../theme-spec'
 
 export type AuditLevel = 'error' | 'warning' | 'info'
 

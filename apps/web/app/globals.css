@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: light;
+  --shell-bg: #f4f4f2;
+  --shell-fg: #1a1a1a;
+  --shell-muted: #6b6b6b;
+  --shell-border: #d8d8d4;
+  --shell-panel: #ffffff;
+  --shell-accent: #0d7377;
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--shell-bg);
+  color: var(--shell-fg);
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--shell-accent);
+  outline-offset: 2px;
+}
