@@ -13,7 +13,7 @@ import {
   type ResolvedTheme,
   type ThemeSpec,
 } from '@handstyle/tokens'
-import { applyThemeCss } from './apply-theme-css'
+import { scopeThemeCss } from './apply-theme-css'
 import { createDefaultThemeSpec, installCommandFor } from './default-theme'
 
 function readSpecFromUrl(): ThemeSpec | null {
@@ -38,7 +38,7 @@ export function useThemeSpec() {
   }, [])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') setOrigin(window.location.origin)
+    setOrigin(window.location.origin)
   }, [])
 
   const theme: ResolvedTheme = useMemo(() => deriveTheme(spec), [spec])
@@ -46,12 +46,8 @@ export function useThemeSpec() {
   const token = useMemo(() => encodeThemeSpec(spec), [spec])
   const css = useMemo(() => serializeCss(theme), [theme])
   const themeCss = useMemo(() => serializeTailwindV4(theme), [theme])
+  const previewCss = useMemo(() => scopeThemeCss(theme), [theme])
   const installCmd = useMemo(() => installCommandFor(token, origin), [token, origin])
-
-  useEffect(() => {
-    if (!urlReady) return
-    applyThemeCss(theme)
-  }, [theme, urlReady])
 
   useEffect(() => {
     if (!urlReady) return
@@ -164,6 +160,7 @@ export function useThemeSpec() {
     token,
     css,
     themeCss,
+    previewCss,
     installCmd,
     previewMode,
     setPreviewMode,

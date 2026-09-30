@@ -51,6 +51,7 @@ export function GeneratorApp() {
       }}
       className="generator-shell"
     >
+      <style id="handstyle-theme-vars">{ctrl.previewCss}</style>
       <style>{`
         @media (min-width: 960px) {
           .generator-shell {
