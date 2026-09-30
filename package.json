@@ -1,0 +1,15 @@
+{
+  "name": "handstyle",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "pnpm --filter @handstyle/tokens test",
+    "test:watch": "pnpm --filter @handstyle/tokens test:watch",
+    "typecheck": "pnpm --filter @handstyle/tokens typecheck"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2"
+  },
+  "packageManager": "pnpm@10.25.0"
+}
