@@ -6,7 +6,9 @@
   "scripts": {
     "test": "pnpm --filter @handstyle/tokens test",
     "test:watch": "pnpm --filter @handstyle/tokens test:watch",
-    "typecheck": "pnpm --filter @handstyle/tokens typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build"
   },
   "devDependencies": {
     "typescript": "~6.0.2"

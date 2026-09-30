@@ -93,7 +93,8 @@ export function normalizeRampToCanonical(
 
   for (let i = 0; i < CANONICAL_STEPS.length; i++) {
     const step = CANONICAL_STEPS[i]!
-    const t = CANONICAL_STEPS.length === 1 ? 0 : i / (CANONICAL_STEPS.length - 1)
+    const last = CANONICAL_STEPS.length - 1
+    const t = last === 0 ? 0 : i / last
     const pos = t * (sorted.length - 1)
     const lo = Math.floor(pos)
     const hi = Math.min(sorted.length - 1, lo + 1)
